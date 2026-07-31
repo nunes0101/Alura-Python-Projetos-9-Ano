@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projetos Alura Python</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+
+color:white;
+
+padding:40px;
+
+min-height:100vh;
+
+}
+
+header{
+
+text-align:center;
+margin-bottom:45px;
+
+}
+
+header h1{
+
+font-size:40px;
+
+font-weight:700;
+
+}
+
+header p{
+
+opacity:.8;
+
+margin-top:10px;
+
+}
+
+.categoria{
+
+margin-top:50px;
+
+margin-bottom:20px;
+
+font-size:28px;
+
+font-weight:600;
+
+display:flex;
+align-items:center;
+gap:12px;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+
+gap:25px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.07);
+
+backdrop-filter:blur(14px);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:22px;
+
+padding:22px;
+
+transition:.35s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+width:250px;
+
+height:250px;
+
+background:rgba(59,130,246,.15);
+
+border-radius:50%;
+
+top:-120px;
+
+right:-120px;
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px) scale(1.02);
+
+box-shadow:0 20px 45px rgba(0,0,0,.4);
+
+}
+
+.card:hover::before{
+
+transform:scale(1.4);
+
+}
+
+.card h3{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+margin-bottom:15px;
+
+}
+
+pre{
+
+background:#0f172a;
+
+padding:18px;
+
+border-radius:12px;
+
+overflow:auto;
+
+font-size:14px;
+
+line-height:1.6;
+
+margin-bottom:20px;
+
+color:#7dd3fc;
+
+}
+
+button{
+
+border:none;
+
+cursor:pointer;
+
+padding:12px 18px;
+
+border-radius:12px;
+
+background:#3b82f6;
+
+color:white;
+
+font-size:15px;
+
+font-weight:600;
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+transition:.25s;
+
+}
+
+button:hover{
+
+background:#2563eb;
+
+transform:scale(1.06);
+
+}
+
+button:active{
+
+transform:scale(.95);
+
+}
+
+footer{
+
+margin-top:60px;
+
+text-align:center;
+
+opacity:.6;
+
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+<h1>Projetos Alura Python</h1>
+
+<p>Dashboard de códigos • Aula 1 e Aula 2</p>
+
+</header>
+
+<h2 class="categoria">
+<i data-lucide="book-open"></i>
+Aula 1
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>
+<i data-lucide="dice-6"></i>
+Número Aleatório
+</h3>
+
+<pre id="c1">import random
+
+# Gera um número aleatório entre 1 e 10
+numero_secreto = random.randint(1, 10)
+
+# Pede para o usuário tentar adivinhar
+input("Adivinhe o número entre 1 e 10: ")
+
+# Revela o número secreto
+print("O número secreto é:", numero_secreto)</pre>
+
+<button onclick="copiar('c1')">
+
+<i data-lucide="copy"></i>
+
+Copiar Código
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>
+<i data-lucide="brain"></i>
+Quiz Python
+</h3>
+
+<pre id="c2"># Pergunta 1
+resposta1 = input("Quem é a protagonista de Guerreiras do K-Pop? ").lower()
+
+# Pergunta 2
+resposta2 = input("Quem é o autor do livro Diário de um Banana? ").lower()
+
+# Pergunta 3
+resposta3 = input("Qual é o nome da nova vocalista da banda LINKIN PARK? ").lower()
+
+if (resposta1 == "rumi") and (resposta2 == "jeff kinney") and (resposta3 == "emily"):
+    print("PARABÉNS, GANHOU O QUIZ E 1 MILHÃO DE REAIS!!")
+else:
+    print("VOCÊ ERROU UMA OU MAIS PERGUNTAS, TENTE NOVAMENTE!")</pre>
+
+<button onclick="copiar('c2')">
+
+<i data-lucide="copy"></i>
+
+Copiar Código
+
+</button>
+
+</div>
+
+</div>
+
+<h2 class="categoria">
+
+<i data-lucide="graduation-cap"></i>
+
+Aula 2
+
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>
+
+<i data-lucide="gamepad-2"></i>
+
+Jogo Número Secreto
+
+</h3>
+
+<pre id="c3"># Jogo - Adivinhe o número secreto
+
+import random
+
+numero_secreto = random.randint(1,10)
+
+input("Adivinhe o número entre 1 e 10: ")
+
+print("O número secreto é:", numero_secreto)</pre>
+
+<button onclick="copiar('c3')">
+
+<i data-lucide="copy"></i>
+
+Copiar Código
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+<i data-lucide="folder-code"></i>
+
+Próximos Projetos
+
+</h3>
+
+<pre id="c4"># Espaço reservado
+
+Reservado.</pre>
+
+<button onclick="copiar('c4')">
+
+<i data-lucide="copy"></i>
+
+Copiar Código
+
+</button>
+
+</div>
+
+</div>
+
+<footer>
+
+Projeto desenvolvido por Nunes
+
+</footer>
+
+<script>
+
+lucide.createIcons();
+
+function copiar(id){
+
+let texto=document.getElementById(id).innerText;
+
+navigator.clipboard.writeText(texto);
+
+event.target.innerHTML='<i data-lucide="check"></i> Copiado!';
+
+lucide.createIcons();
+
+setTimeout(()=>{
+
+event.target.innerHTML='<i data-lucide="copy"></i> Copiar Código';
+
+lucide.createIcons();
+
+},1800);
+
+}
+
+</script>
+
+</body>
+</html>
