@@ -3,256 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Projetos Alura Python</title>
 
+<!-- Fonts & Icons -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://googleapis.com" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
 
+<!-- Syntax Highlighting (PrismJS Theme Dracula) -->
+<link href="https://cloudflare.com" rel="stylesheet" />
+<script src="https://cloudflare.com"></script>
+<script src="https://cloudflare.com"></script>
+
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
+:root {
+  --bg-gradient: radial-gradient(circle at top center, #1e1b4b 0%, #0f172a 100%);
+  --card-bg: rgba(30, 41, 59, 0.4);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --accent-primary: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.15);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
 }
 
-html{
-scroll-behavior:smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-body{
-
-background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
-
-color:white;
-
-padding:40px;
-
-min-height:100vh;
-
+html {
+  scroll-behavior: smooth;
 }
 
-header{
-
-text-align:center;
-margin-bottom:45px;
-
+body {
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  padding: 60px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-header h1{
-
-font-size:40px;
-
-font-weight:700;
-
+.container {
+  width: 100%;
+  max-width: 1200px;
 }
 
-header p{
-
-opacity:.8;
-
-margin-top:10px;
-
+header {
+  text-align: center;
+  margin-bottom: 60px;
 }
 
-.categoria{
-
-margin-top:50px;
-
-margin-bottom:20px;
-
-font-size:28px;
-
-font-weight:600;
-
-display:flex;
-align-items:center;
-gap:12px;
-
+header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-
-gap:25px;
-
+header p {
+  color: var(--text-muted);
+  margin-top: 12px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.card{
-
-background:rgba(255,255,255,.07);
-
-backdrop-filter:blur(14px);
-
-border:1px solid rgba(255,255,255,.15);
-
-border-radius:22px;
-
-padding:22px;
-
-transition:.35s;
-
-position:relative;
-
-overflow:hidden;
-
+.categoria {
+  margin: 50px 0 25px;
+  font-size: 24px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--accent-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 10px;
 }
 
-.card::before{
-
-content:"";
-
-position:absolute;
-
-width:250px;
-
-height:250px;
-
-background:rgba(59,130,246,.15);
-
-border-radius:50%;
-
-top:-120px;
-
-right:-120px;
-
-transition:.4s;
-
+.categoria svg {
+  width: 24px;
+  height: 24px;
 }
 
-.card:hover{
-
-transform:translateY(-10px) scale(1.02);
-
-box-shadow:0 20px 45px rgba(0,0,0,.4);
-
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 30px;
 }
 
-.card:hover::before{
-
-transform:scale(1.4);
-
+@media(max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+  header h1 { font-size: 36px; }
 }
 
-.card h3{
-
-display:flex;
-
-align-items:center;
-
-gap:10px;
-
-margin-bottom:15px;
-
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 28px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-pre{
-
-background:#0f172a;
-
-padding:18px;
-
-border-radius:12px;
-
-overflow:auto;
-
-font-size:14px;
-
-line-height:1.6;
-
-margin-bottom:20px;
-
-color:#7dd3fc;
-
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 20px 40px -15px var(--accent-glow);
 }
 
-button{
-
-border:none;
-
-cursor:pointer;
-
-padding:12px 18px;
-
-border-radius:12px;
-
-background:#3b82f6;
-
-color:white;
-
-font-size:15px;
-
-font-weight:600;
-
-display:flex;
-
-align-items:center;
-
-gap:8px;
-
-transition:.25s;
-
+.card h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #fff;
 }
 
-button:hover{
-
-background:#2563eb;
-
-transform:scale(1.06);
-
+.card h3 svg {
+  color: var(--accent-primary);
+  width: 20px;
+  height: 20px;
 }
 
-button:active{
-
-transform:scale(.95);
-
+.code-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0b0f19 !important;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  flex-grow: 1;
 }
 
-footer{
-
-margin-top:60px;
-
-text-align:center;
-
-opacity:.6;
-
+pre[class*="language-"] {
+  margin: 0 !important;
+  padding: 24px !important;
+  background: transparent !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
 }
 
+code[class*="language-"] {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.btn-copy {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(8px);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.btn-copy:hover {
+  background: var(--text-main);
+  color: #0f172a;
+  border-color: var(--text-main);
+}
+
+.btn-copy.copied {
+  background: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+footer {
+  margin-top: 100px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* Customização leve do tema Prism para casar com o layout */
+.token.comment { color: #6272a4 !important; }
+.token.keyword { color: #ff79c6 !important; }
+.token.string { color: #f1fa8c !important; }
+.token.function { color: #50fa7b !important; }
+.token.number { color: #bd93f9 !important; }
 </style>
-
 </head>
 <body>
 
-<header>
+<div class="container">
+  <header>
+    <h1>Projetos Alura Python</h1>
+    <p>Dashboard de códigos • Aula 1 e Aula 2</p>
+  </header>
 
-<h1>Projetos Alura Python</h1>
+  <!-- AULA 1 -->
+  <h2 class="categoria">
+    <i data-lucide="book-open"></i> Aula 1
+  </h2>
 
-<p>Dashboard de códigos • Aula 1 e Aula 2</p>
-
-</header>
-
-<h2 class="categoria">
-<i data-lucide="book-open"></i>
-Aula 1
-</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>
-<i data-lucide="dice-6"></i>
-Número Aleatório
-</h3>
-
-<pre id="c1">import random
+  <div class="grid">
+    <div class="card">
+      <h3><i data-lucide="dice-6"></i> Número Aleatório</h3>
+      <div class="code-container">
+        <button class="btn-copy" onclick="copiar('c1', this)">
+          <i data-lucide="copy" style="width:14px; height:14px;"></i> Copiar
+        </button>
+        <pre><code class="language-python" id="c1">import random
 
 # Gera um número aleatório entre 1 e 10
 numero_secreto = random.randint(1, 10)
@@ -261,26 +236,17 @@ numero_secreto = random.randint(1, 10)
 input("Adivinhe o número entre 1 e 10: ")
 
 # Revela o número secreto
-print("O número secreto é:", numero_secreto)</pre>
+print("O número secreto é:", numero_secreto)</code></pre>
+      </div>
+    </div>
 
-<button onclick="copiar('c1')">
-
-<i data-lucide="copy"></i>
-
-Copiar Código
-
-</button>
-
-</div>
-
-<div class="card">
-
-<h3>
-<i data-lucide="brain"></i>
-Quiz Python
-</h3>
-
-<pre id="c2"># Pergunta 1
+    <div class="card">
+      <h3><i data-lucide="brain"></i> Quiz Python</h3>
+      <div class="code-container">
+        <button class="btn-copy" onclick="copiar('c2', this)">
+          <i data-lucide="copy" style="width:14px; height:14px;"></i> Copiar
+        </button>
+        <pre><code class="language-python" id="c2"># Pergunta 1
 resposta1 = input("Quem é a protagonista de Guerreiras do K-Pop? ").lower()
 
 # Pergunta 2
@@ -292,116 +258,69 @@ resposta3 = input("Qual é o nome da nova vocalista da banda LINKIN PARK? ").low
 if (resposta1 == "rumi") and (resposta2 == "jeff kinney") and (resposta3 == "emily"):
     print("PARABÉNS, GANHOU O QUIZ E 1 MILHÃO DE REAIS!!")
 else:
-    print("VOCÊ ERROU UMA OU MAIS PERGUNTAS, TENTE NOVAMENTE!")</pre>
+    print("VOCÊ ERROU UMA OU MAIS PERGUNTAS, TENTE NOVAMENTE!")</code></pre>
+      </div>
+    </div>
+  </div>
 
-<button onclick="copiar('c2')">
+  <!-- AULA 2 -->
+  <h2 class="categoria">
+    <i data-lucide="graduation-cap"></i> Aula 2
+  </h2>
 
-<i data-lucide="copy"></i>
-
-Copiar Código
-
-</button>
-
-</div>
-
-</div>
-
-<h2 class="categoria">
-
-<i data-lucide="graduation-cap"></i>
-
-Aula 2
-
-</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>
-
-<i data-lucide="gamepad-2"></i>
-
-Jogo Número Secreto
-
-</h3>
-
-<pre id="c3"># Jogo - Adivinhe o número secreto
-
+  <div class="grid">
+    <div class="card">
+      <h3><i data-lucide="gamepad-2"></i> Jogo Número Secreto</h3>
+      <div class="code-container">
+        <button class="btn-copy" onclick="copiar('c3', this)">
+          <i data-lucide="copy" style="width:14px; height:14px;"></i> Copiar
+        </button>
+        <pre><code class="language-python" id="c3"># Jogo - Adivinhe o número secreto
 import random
 
 numero_secreto = random.randint(1,10)
-
 input("Adivinhe o número entre 1 e 10: ")
+print("O número secreto é:", numero_secreto)</code></pre>
+      </div>
+    </div>
 
-print("O número secreto é:", numero_secreto)</pre>
+    <div class="card">
+      <h3><i data-lucide="folder-code"></i> Próximos Projetos</h3>
+      <div class="code-container">
+        <button class="btn-copy" onclick="copiar('c4', this)">
+          <i data-lucide="copy" style="width:14px; height:14px;"></i> Copiar
+        </button>
+        <pre><code class="language-python" id="c4"># Espaço reservado
 
-<button onclick="copiar('c3')">
+Reservado.</code></pre>
+      </div>
+    </div>
+  </div>
 
-<i data-lucide="copy"></i>
-
-Copiar Código
-
-</button>
-
+  <footer>
+    Projeto desenvolvido por <strong>Nunes</strong>
+  </footer>
 </div>
-
-<div class="card">
-
-<h3>
-
-<i data-lucide="folder-code"></i>
-
-Próximos Projetos
-
-</h3>
-
-<pre id="c4"># Espaço reservado
-
-Reservado.</pre>
-
-<button onclick="copiar('c4')">
-
-<i data-lucide="copy"></i>
-
-Copiar Código
-
-</button>
-
-</div>
-
-</div>
-
-<footer>
-
-Projeto desenvolvido por Nunes
-
-</footer>
 
 <script>
-
+// Inicializa os ícones do Lucide
 lucide.createIcons();
 
-function copiar(id){
+function copiar(id, elemento) {
+  let texto = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(texto);
 
-let texto=document.getElementById(id).innerText;
+  // Altera o estado do botão
+  elemento.innerHTML = '<i data-lucide="check" style="width:14px; height:14px;"></i> Copiado!';
+  elemento.classList.add('copied');
+  lucide.createIcons();
 
-navigator.clipboard.writeText(texto);
-
-event.target.innerHTML='<i data-lucide="check"></i> Copiado!';
-
-lucide.createIcons();
-
-setTimeout(()=>{
-
-event.target.innerHTML='<i data-lucide="copy"></i> Copiar Código';
-
-lucide.createIcons();
-
-},1800);
-
+  setTimeout(() => {
+    elemento.innerHTML = '<i data-lucide="copy" style="width:14px; height:14px;"></i> Copiar';
+    elemento.classList.remove('copied');
+    lucide.createIcons();
+  }, 1800);
 }
-
 </script>
 
 </body>
